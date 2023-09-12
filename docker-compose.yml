@@ -1,0 +1,22 @@
+﻿version: '3'
+
+services:
+  postgres:
+    image: postgres:latest
+    container_name: nestjs-graphql-postgres
+    environment:
+      POSTGRES_DB: nestjs_graphql_tools_development_public
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - nestjs-graphql-network
+
+volumes:
+  postgres_data:
+
+networks:
+  nestjs-graphql-network:
